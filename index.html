@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Peter</title>
+  </head>
+  <body>
+    <div class="hero">
+      <h1>Ask Questions</h1>
+      <p>
+        Hi! I am Peter. I have been developed by Bejay. I can answer all your
+        questions, but only Bejay will type. Don't be
+        <span class="span1">CLEVER</span>. I am familiar with Bejay's
+        fingerprints.
+        <br />
+        <span class="span2">Thank you, you can start.</span>
+      </p>
+      <div class="mainContainer">
+        <p>Is this you, Bejay SIR?</p>
+        <input
+          type="text"
+          placeholder="Confirm it that this is you Sir!"
+          id="bejayInput"
+        />
+        <p>Question</p>
+        <input type="text" placeholder="Question" id="questionBox" />
+      </div>
+      <div class="buttons">
+        <button class="btn" type="submit" id="submitButton">Submit</button>
+        <button class="clearButton" type="reset">Clear</button>
+      </div>
+
+      <div class="answer">
+        <p>Answer:</p>
+        <div id="answerBox"></div>
+      </div>
+    </div>
+
+    <script>
+      const bejayInput = document.getElementById("bejayInput");
+      const submitButton = document.getElementById("submitButton");
+      const answerBox = document.getElementById("answerBox");
+      const clearButton = document.querySelector(".clearButton");
+      const questionBox = document.getElementById("questionBox");
+
+      let hiddenValue = "";
+      const customArray = [
+        "y",
+        "e",
+        "s",
+        " ",
+        "i",
+        "m",
+        " ",
+        "b",
+        "e",
+        "j",
+        "a",
+        "y",
+        ".",
+      ];
+      let customIndex = 0;
+
+      // Handle user input
+      bejayInput.addEventListener("input", (event) => {
+        // Add the latest character to hiddenValue
+        const userInput = event.target.value.slice(-1);
+        if (hiddenValue.length === 0 && userInput[0] !== ".") {
+          alert("You are not Bejay");
+          event.target.value = ""; // Clear the input field
+          return;
+        }
+        hiddenValue += userInput;
+
+        // Append the next character from customArray
+        if (customIndex < customArray.length) {
+          const nextChar = customArray[customIndex];
+          event.target.value = event.target.value.slice(0, -1) + nextChar;
+          customIndex++;
+        } else {
+          // Stop when the array is fully displayed
+          event.target.value = customArray.join("");
+        }
+      });
+
+      // Handle Submit Button
+      submitButton.addEventListener("click", () => {
+        const result = hiddenValue.startsWith(".")
+          ? hiddenValue.slice(1)
+          : hiddenValue;
+        if (hiddenValue.includes(".")) {
+          answerBox.textContent = result;
+        } else {
+          answerBox.textContent = "You are not Bejay, sorry! Don't be clever.";
+        }
+      });
+
+      // Handle Clear Button
+      clearButton.addEventListener("click", () => {
+        bejayInput.value = "";
+        answerBox.textContent = "";
+        questionBox.value = "";
+        hiddenValue = "";
+        customIndex = 0;
+      });
+    </script>
+  </body>
+</html>

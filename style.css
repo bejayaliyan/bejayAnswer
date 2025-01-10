@@ -1,0 +1,74 @@
+body {
+  background: linear-gradient(to bottom, black, white);
+  color: aliceblue;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.hero h1 {
+  color: yellowgreen;
+  font-size: 100px;
+  padding: 0;
+  margin-bottom: 0;
+}
+.span1 {
+  color: red;
+}
+.span2 {
+  color: yellowgreen;
+}
+
+.mainContainer input {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  color: yellow;
+  background-color: black;
+  border: 2px solid yellowgreen;
+  border-radius: 10px;
+}
+.mainContainer p {
+  color: yellow;
+  font-size: 20px;
+}
+.btn {
+  height: 40px;
+  width: 100px;
+  border-radius: 10px;
+  background-color: black;
+  margin-top: 20px;
+  color: yellow;
+  border: 1px solid;
+}
+.btn:hover {
+  color: black;
+  background-color: yellowgreen;
+}
+.clearButton {
+  height: 40px;
+  width: 100px;
+  border-radius: 10px;
+  background-color: black;
+  margin-top: 20px;
+  color: yellow;
+  border: 1px solid;
+}
+.clearButton:hover {
+  color: black;
+  background-color: yellowgreen;
+}
+.answer {
+  color: black;
+  size: 20px;
+  border-bottom: 1px solid black;
+  width: 200px;
+  justify-self: center;
+  height: 70px;
+}
+.answer div {
+  color: black;
+  font-size: 20px;
+}
